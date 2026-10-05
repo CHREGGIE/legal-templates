@@ -25,6 +25,26 @@ These templates include a General Legal credit footnote. The templates are relea
 | [Privacy Policy (GDPR Enhanced)](templates/privacy-policy-gdpr/) | Multi-jurisdictional privacy policy covering both U.S. state laws and GDPR/UK GDPR |
 | [Terms of Use](templates/terms-of-use/) | Website terms of use covering access rights, IP protections, liability limits, and dispute resolution |
 
+## Use as a Claude Skill
+
+This repo includes a [Claude skill](skills/legal-templates/SKILL.md). It lets Claude pick the right template, ask for the deal details, and produce a filled-in draft.
+
+**Claude Code: install as a plugin (works in any project)**
+
+```
+/plugin marketplace add chreggie/legal-templates
+/plugin install legal-templates@legal-templates
+```
+
+**Claude Code: inside this repo.** The skill loads automatically from `.claude/skills/`; there is nothing to install.
+
+**Claude.ai / Claude desktop app**
+
+1. Build the upload bundle with `python3 scripts/build_skill.py`. This writes `dist/legal-templates.zip`.
+2. Go to **Settings → Capabilities → Skills**. Upload the zip, then turn the skill on. Code execution needs to be enabled.
+
+After that, ask for a document, for example *"Draft a mutual NDA between Acme, Inc. and Beta LLC"*. Claude uses the skill on its own, or you can call it directly with `/legal-templates`. Rebuild and re-upload the zip whenever the templates change.
+
 ## Repository Structure
 
 ```
@@ -45,7 +65,12 @@ legal-templates/
     privacy-policy-us/
     terms-of-use/
   docx-originals/             # Original .docx source files
+  skills/legal-templates/
+    SKILL.md                  # Claude skill instructions (templates/ is a symlink to ../../templates)
+  .claude-plugin/             # Claude Code plugin + marketplace manifests
+  .claude/skills/             # Symlink so the skill loads when working in this repo
   scripts/
+    build_skill.py            # Builds dist/legal-templates.zip for upload to Claude
     fetch_templates.py        # Downloads .docx files from general.legal/resources/library
     convert_docx.py           # Converts .docx originals to markdown
   LICENSE                     # CC0 1.0 Universal

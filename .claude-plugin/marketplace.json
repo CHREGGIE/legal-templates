@@ -1,0 +1,14 @@
+{
+  "name": "legal-templates",
+  "description": "General Legal's CC0 legal templates as a Claude Code skill",
+  "owner": {
+    "name": "chreggie"
+  },
+  "plugins": [
+    {
+      "name": "legal-templates",
+      "source": "./",
+      "description": "Draft NDAs, MSAs, DPAs, BAAs, privacy policies, terms of use, cookie notices, advisor agreements, and offer letters from General Legal's CC0 attorney-drafted templates."
+    }
+  ]
+}
