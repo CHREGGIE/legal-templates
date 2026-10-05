@@ -1,0 +1,18 @@
+{
+  "name": "legal-templates",
+  "version": "1.0.0",
+  "description": "Draft NDAs, MSAs, DPAs, BAAs, privacy policies, terms of use, cookie notices, advisor agreements, and offer letters from General Legal's CC0 attorney-drafted templates.",
+  "author": {
+    "name": "chreggie"
+  },
+  "license": "CC0-1.0",
+  "repository": "https://github.com/chreggie/legal-templates",
+  "keywords": [
+    "legal",
+    "contracts",
+    "nda",
+    "privacy-policy",
+    "dpa",
+    "templates"
+  ]
+}
